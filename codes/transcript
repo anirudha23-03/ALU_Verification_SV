@@ -1,0 +1,477 @@
+# vsim -c top -do "run -all;exit;" 
+# Start time: 16:51:30 on Jul 31,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.alu_top_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.alu_if(fast)
+# run -all
+# GENERATOR Randomized transaction:           0
+# 
+# [0] CE = 1, INP_VALID = 1, MODE = 1, CMD = 2, OPA = 194, OPB = 210, CIN = 1
+# 
+# GENERATOR Randomized transaction:           1
+# 
+# [0] CE = 1, INP_VALID = 1, MODE = 0, CMD = 0, OPA = 25, OPB = 99, CIN = 0
+# 
+# GENERATOR Randomized transaction:           2
+# 
+# [0] CE = 1, INP_VALID = 1, MODE = 1, CMD = 3, OPA = 59, OPB = 15, CIN = 1
+# 
+# GENERATOR Randomized transaction:           3
+# 
+# [0] CE = 0, INP_VALID = 2, MODE = 1, CMD = 11, OPA = 206, OPB = 99, CIN = 0
+# 
+# GENERATOR Randomized transaction:           4
+# 
+# [0] CE = 1, INP_VALID = 0, MODE = 0, CMD = 1, OPA = 131, OPB = 231, CIN = 0
+# 
+# GENERATOR Randomized transaction:           5
+# 
+# [0] CE = 1, INP_VALID = 0, MODE = 0, CMD = 10, OPA = 88, OPB = 204, CIN = 0
+# 
+# GENERATOR Randomized transaction:           6
+# 
+# [0] CE = 1, INP_VALID = 3, MODE = 0, CMD = 13, OPA = 219, OPB = 234, CIN = 0
+# 
+# GENERATOR Randomized transaction:           7
+# 
+# [0] CE = 1, INP_VALID = 0, MODE = 1, CMD = 6, OPA = 58, OPB = 93, CIN = 0
+# 
+# GENERATOR Randomized transaction:           8
+# 
+# [0] CE = 0, INP_VALID = 2, MODE = 0, CMD = 4, OPA = 47, OPB = 27, CIN = 0
+# 
+# GENERATOR Randomized transaction:           9
+# 
+# [0] CE = 1, INP_VALID = 0, MODE = 0, CMD = 9, OPA = 14, OPB = 67, CIN = 0
+# 
+# ******************** GENERATOR COMPLETED ********************
+# 
+# [0] Driver Start
+# [5] ---------- ALU DRIVER----------
+# 
+# [5] CE = 1, MODE = 1, INP_VALID = 1, CMD = 2, OPA = 194, OPB = 210, CIN = 1
+# 
+# [15] Retry 1: CE = 1, MODE = 1, INP_VALID = 2, CMD = 2, OPA = 36, OPB = 241, CIN = 0
+# 
+# [25] Retry 2: CE = 1, MODE = 1, INP_VALID = 2, CMD = 2, OPA = 201, OPB = 168, CIN = 1
+# 
+# [35] Retry 3: CE = 1, MODE = 1, INP_VALID = 0, CMD = 2, OPA = 150, OPB = 125, CIN = 0
+# 
+# [45] Retry 4: CE = 1, MODE = 1, INP_VALID = 0, CMD = 2, OPA = 255, OPB = 90, CIN = 0
+# 
+# [55] Retry 5: CE = 1, MODE = 1, INP_VALID = 1, CMD = 2, OPA = 222, OPB = 60, CIN = 0
+# 
+# [65] Retry 6: CE = 1, MODE = 1, INP_VALID = 3, CMD = 2, OPA = 82, OPB = 87, CIN = 0
+# 
+# [75] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 3, MODE = 1, CMD = 2, OPA = 82, OPB = 87, CIN = 0
+# [75]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 1 INP_VALID = 11 CMD = 2
+# OPA = 82 OPB = 87 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 169 COUT = 0 EGL = 0 OFLOW = 0 ERR = 0
+# 
+# [95] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 169, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [95] ----------------------- SCOREBOARD ---------------------------
+### REF[0] => RES=169, CMD=2, OPA=82, OPB=87
+### MON[0] => RES=169, CMD=2, OPA=82, OPB=87
+# PASS: RES match => 169
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# PASS: ERR match => 0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# PASS: All outputs match for transaction [0]
+# 
+# [105] ---------- ALU DRIVER----------
+# 
+# [105] CE = 1, MODE = 0, INP_VALID = 1, CMD = 0, OPA = 25, OPB = 99, CIN = 0
+# 
+# [115] Retry 1: CE = 1, MODE = 0, INP_VALID = 0, CMD = 0, OPA = 194, OPB = 237, CIN = 0
+# 
+# [125] Retry 2: CE = 1, MODE = 0, INP_VALID = 1, CMD = 0, OPA = 44, OPB = 60, CIN = 0
+# 
+# [135] Retry 3: CE = 1, MODE = 0, INP_VALID = 0, CMD = 0, OPA = 94, OPB = 99, CIN = 0
+# 
+# [145] Retry 4: CE = 1, MODE = 0, INP_VALID = 2, CMD = 0, OPA = 58, OPB = 40, CIN = 0
+# 
+# [155] Retry 5: CE = 1, MODE = 0, INP_VALID = 2, CMD = 0, OPA = 190, OPB = 4, CIN = 0
+# 
+# [165] Retry 6: CE = 1, MODE = 0, INP_VALID = 2, CMD = 0, OPA = 245, OPB = 141, CIN = 0
+# 
+# [175] Retry 7: CE = 1, MODE = 0, INP_VALID = 1, CMD = 0, OPA = 71, OPB = 20, CIN = 0
+# 
+# [185] Retry 8: CE = 1, MODE = 0, INP_VALID = 0, CMD = 0, OPA = 242, OPB = 17, CIN = 0
+# 
+# [195] Retry 9: CE = 1, MODE = 0, INP_VALID = 2, CMD = 0, OPA = 248, OPB = 126, CIN = 0
+# 
+# [205] Retry 10: CE = 1, MODE = 0, INP_VALID = 1, CMD = 0, OPA = 234, OPB = 212, CIN = 0
+# 
+# [215] Retry 11: CE = 1, MODE = 0, INP_VALID = 3, CMD = 0, OPA = 199, OPB = 159, CIN = 0
+# 
+# [225] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 3, MODE = 0, CMD = 0, OPA = 199, OPB = 159, CIN = 0
+# [225]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 0 INP_VALID = 11 CMD = 0
+# OPA = 199 OPB = 159 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 135 COUT = 0 EGL = 0 OFLOW = 0 ERR = 0
+# 
+# [245] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 135, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [245] ----------------------- SCOREBOARD ---------------------------
+### REF[1] => RES=135, CMD=0, OPA=199, OPB=159
+### MON[1] => RES=135, CMD=0, OPA=199, OPB=159
+# PASS: RES match => 135
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# PASS: ERR match => 0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# PASS: All outputs match for transaction [1]
+# 
+# [255] ---------- ALU DRIVER----------
+# 
+# [255] CE = 1, MODE = 1, INP_VALID = 1, CMD = 3, OPA = 59, OPB = 15, CIN = 1
+# 
+# [265] Retry 1: CE = 1, MODE = 1, INP_VALID = 3, CMD = 3, OPA = 76, OPB = 110, CIN = 1
+# 
+# [275] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 3, MODE = 1, CMD = 3, OPA = 76, OPB = 110, CIN = 1
+# [275]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 1 INP_VALID = 11 CMD = 3
+# OPA = 76 OPB = 110 CIN = 1
+# 
+# [REF MODEL] Expected: RES = 989 COUT = 0 EGL = 0 OFLOW = 1 ERR = 0
+# 
+# [295] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 989, COUT = 0, OFLOW = 1, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [295] ----------------------- SCOREBOARD ---------------------------
+### REF[2] => RES=989, CMD=3, OPA=76, OPB=110
+### MON[2] => RES=989, CMD=3, OPA=76, OPB=110
+# PASS: RES match => 989
+# PASS: COUT match => 0
+# PASS: OFLOW match => 1
+# PASS: ERR match => 0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# PASS: All outputs match for transaction [2]
+# 
+# [305] ---------- ALU DRIVER----------
+# 
+# [305] CE = 0, MODE = 1, INP_VALID = 2, CMD = 11, OPA = 206, OPB = 99, CIN = 0
+# 
+# [315]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 0 MODE = 1 INP_VALID = 10 CMD = 11
+# OPA = 206 OPB = 99 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 0 COUT = 0 EGL = 0 OFLOW = 0 ERR = 1
+# 
+# [325] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 0, IP_VALID = 2, MODE = 1, CMD = 11, OPA = 206, OPB = 99, CIN = 0
+# [345] ---------- ALU DRIVER----------
+# 
+# [345] CE = 1, MODE = 0, INP_VALID = 0, CMD = 1, OPA = 131, OPB = 231, CIN = 0
+# 
+# [345] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 989, COUT = 0, OFLOW = 1, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [345] ----------------------- SCOREBOARD ---------------------------
+### REF[3] => RES=0, CMD=11, OPA=206, OPB=99
+### MON[3] => RES=989, CMD=11, OPA=206, OPB=99
+# FAIL: RES mismatch => REF=0, MON=989
+# PASS: COUT match => 0
+# FAIL: OFLOW mismatch => REF=0, MON=1
+# FAIL: ERR mismatch => REF=1, MON=0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# FAIL: Mismatch found in transaction [3]
+# 
+# [355] Retry 1: CE = 1, MODE = 0, INP_VALID = 2, CMD = 1, OPA = 253, OPB = 229, CIN = 0
+# 
+# [365] Retry 2: CE = 1, MODE = 0, INP_VALID = 0, CMD = 1, OPA = 40, OPB = 79, CIN = 0
+# 
+# [375] Retry 3: CE = 1, MODE = 0, INP_VALID = 1, CMD = 1, OPA = 12, OPB = 95, CIN = 0
+# 
+# [385] Retry 4: CE = 1, MODE = 0, INP_VALID = 0, CMD = 1, OPA = 251, OPB = 149, CIN = 0
+# 
+# [395] Retry 5: CE = 1, MODE = 0, INP_VALID = 2, CMD = 1, OPA = 14, OPB = 163, CIN = 0
+# 
+# [405] Retry 6: CE = 1, MODE = 0, INP_VALID = 2, CMD = 1, OPA = 6, OPB = 95, CIN = 0
+# 
+# [415] Retry 7: CE = 1, MODE = 0, INP_VALID = 2, CMD = 1, OPA = 153, OPB = 26, CIN = 0
+# 
+# [425] Retry 8: CE = 1, MODE = 0, INP_VALID = 3, CMD = 1, OPA = 144, OPB = 42, CIN = 0
+# 
+# [435] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 3, MODE = 0, CMD = 1, OPA = 144, OPB = 42, CIN = 0
+# [435]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 0 INP_VALID = 11 CMD = 1
+# OPA = 144 OPB = 42 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 255 COUT = 0 EGL = 0 OFLOW = 0 ERR = 0
+# 
+# [455] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 255, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [455] ----------------------- SCOREBOARD ---------------------------
+### REF[4] => RES=255, CMD=1, OPA=144, OPB=42
+### MON[4] => RES=255, CMD=1, OPA=144, OPB=42
+# PASS: RES match => 255
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# PASS: ERR match => 0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# PASS: All outputs match for transaction [4]
+# 
+# [465] ---------- ALU DRIVER----------
+# 
+# [465] CE = 1, MODE = 0, INP_VALID = 0, CMD = 10, OPA = 88, OPB = 204, CIN = 0
+# 
+# [475]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 0 INP_VALID = 0 CMD = 10
+# OPA = 88 OPB = 204 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 0 COUT = 0 EGL = 0 OFLOW = 0 ERR = 1
+# 
+# [485] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 0, MODE = 0, CMD = 10, OPA = 88, OPB = 204, CIN = 0
+# [505] ---------- ALU DRIVER----------
+# 
+# [505] CE = 1, MODE = 0, INP_VALID = 3, CMD = 13, OPA = 219, OPB = 234, CIN = 0
+# 
+# [505] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 255, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [505] ----------------------- SCOREBOARD ---------------------------
+### REF[5] => RES=0, CMD=10, OPA=88, OPB=204
+### MON[5] => RES=255, CMD=10, OPA=88, OPB=204
+# FAIL: RES mismatch => REF=0, MON=255
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# FAIL: ERR mismatch => REF=1, MON=0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# FAIL: Mismatch found in transaction [5]
+# 
+# [515]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 0 INP_VALID = 11 CMD = 13
+# OPA = 219 OPB = 234 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 246 COUT = 0 EGL = 0 OFLOW = 0 ERR = 1
+# 
+# [535] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 3, MODE = 0, CMD = 13, OPA = 219, OPB = 234, CIN = 0
+# [545] ---------- ALU DRIVER----------
+# 
+# [545] CE = 1, MODE = 1, INP_VALID = 0, CMD = 6, OPA = 58, OPB = 93, CIN = 0
+# 
+# [555] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 246, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 85.71%
+# [555]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 1 INP_VALID = 0 CMD = 6
+# OPA = 58 OPB = 93 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 0 COUT = 0 EGL = 0 OFLOW = 0 ERR = 1
+# 
+# [555] ----------------------- SCOREBOARD ---------------------------
+### REF[6] => RES=246, CMD=13, OPA=219, OPB=234
+### MON[6] => RES=246, CMD=13, OPA=219, OPB=234
+# PASS: RES match => 246
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# FAIL: ERR mismatch => REF=1, MON=0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# FAIL: Mismatch found in transaction [6]
+# 
+# [585] ---------- ALU DRIVER----------
+# 
+# [585] CE = 0, MODE = 0, INP_VALID = 2, CMD = 4, OPA = 47, OPB = 27, CIN = 0
+# 
+# [585] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 0, MODE = 1, CMD = 6, OPA = 58, OPB = 93, CIN = 0
+# [595] Retry 1: CE = 0, MODE = 0, INP_VALID = 1, CMD = 4, OPA = 196, OPB = 3, CIN = 0
+# 
+# [605] Retry 2: CE = 0, MODE = 0, INP_VALID = 3, CMD = 4, OPA = 162, OPB = 77, CIN = 0
+# 
+# [605] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 0, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 100.00%
+# [605] ----------------------- SCOREBOARD ---------------------------
+### REF[7] => RES=0, CMD=6, OPA=58, OPB=93
+### MON[7] => RES=0, CMD=6, OPA=58, OPB=93
+# PASS: RES match => 0
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# FAIL: ERR mismatch => REF=1, MON=0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# FAIL: Mismatch found in transaction [7]
+# 
+# [615]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 0 MODE = 0 INP_VALID = 11 CMD = 4
+# OPA = 162 OPB = 77 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 0 COUT = 0 EGL = 0 OFLOW = 0 ERR = 1
+# 
+# [635] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 0, IP_VALID = 3, MODE = 0, CMD = 4, OPA = 162, OPB = 77, CIN = 0
+# [645] ---------- ALU DRIVER----------
+# 
+# [645] CE = 1, MODE = 0, INP_VALID = 0, CMD = 9, OPA = 14, OPB = 67, CIN = 0
+# 
+# [655] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 0, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 100.00%
+# [655]-----------------------REFERENCE MODEL ------------------------
+# 
+# RST = 0 CE = 1 MODE = 0 INP_VALID = 0 CMD = 9
+# OPA = 14 OPB = 67 CIN = 0
+# 
+# [REF MODEL] Expected: RES = 0 COUT = 0 EGL = 0 OFLOW = 0 ERR = 1
+# 
+# [655] ----------------------- SCOREBOARD ---------------------------
+### REF[8] => RES=0, CMD=4, OPA=162, OPB=77
+### MON[8] => RES=0, CMD=4, OPA=162, OPB=77
+# PASS: RES match => 0
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# FAIL: ERR mismatch => REF=1, MON=0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# FAIL: Mismatch found in transaction [8]
+# 
+# ALU DRIVER: Input Coverage = 62.50%
+# 
+# [685] ---------- ALU MONITOR ----------
+# 
+# Input signals
+# 
+# CE = 1, IP_VALID = 0, MODE = 0, CMD = 9, OPA = 14, OPB = 67, CIN = 0
+# [705] ---------- ALU MONITOR ----------
+# 
+# Output signals
+# 
+# RES = 239, COUT = 0, OFLOW = 0, ERR = 0, G = 0, L = 0, E = 0
+# 
+# MONITOR: Output functional coverage = 100.00%
+# [705] ----------------------- SCOREBOARD ---------------------------
+### REF[9] => RES=0, CMD=9, OPA=14, OPB=67
+### MON[9] => RES=239, CMD=9, OPA=14, OPB=67
+# FAIL: RES mismatch => REF=0, MON=239
+# PASS: COUT match => 0
+# PASS: OFLOW match => 0
+# FAIL: ERR mismatch => REF=1, MON=0
+# PASS: G match => 0
+# PASS: L match => 0
+# PASS: E match => 0
+# FAIL: Mismatch found in transaction [9]
+# 
+# ** Note: $finish    : alu_top.sv(66)
+#    Time: 735 ns  Iteration: 3  Instance: /top
+# End time: 16:51:31 on Jul 31,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
