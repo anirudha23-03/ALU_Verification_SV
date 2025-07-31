@@ -28,7 +28,8 @@ class alu_reference_model;
       if (op_wait_req(ref_trans.CMD, ref_trans.MODE, ref_trans.INP_VALID)) begin
         handle_op_wait();
       end else begin
-        repeat (1) @(vif.ref_cb) begin
+        // repeat (1) @(vif.ref_cb)
+         begin
           calculate_expected_results(
             vif.rst,
             ref_trans.CE,

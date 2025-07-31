@@ -1,11 +1,10 @@
-`timescale 1ns/100ps
 
 `ifndef DEFINES_V
 `define DEFINES_V
 
 `define DATA_WIDTH 8
 `define CMD_WIDTH 4
-`define NO_OF_TRANS 3
+`define NO_OF_TRANS 10
 
 //arithmetic commands
 `define ADD      4'd0

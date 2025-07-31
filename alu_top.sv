@@ -1,4 +1,4 @@
-`timescale 1ns/1ns
+//`timescale 1ns/1ns
 //`include "alu_pkg.sv"
 
 `include "defines.sv"
@@ -24,7 +24,7 @@ module top();
   bit rst;
 
   // Clock Generation
-  initial clk = 0;
+  //initial clk = 0;
   always #5 clk = ~clk;
 
   // Reset Sequence

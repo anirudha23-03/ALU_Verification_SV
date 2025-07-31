@@ -30,10 +30,10 @@ class alu_monitor;
 	//check if cmd requires 2 or 1 operand
 	function bit needs_2_op(logic [3:0] CMD, logic MODE);
 		if(MODE == 1)begin
-			$display("needs 2 op");
+		//	$display("needs 2 op");
 			return (CMD inside {4'd0, 4'd1, 4'd2, 4'd3, 4'd8, 4'd9, 4'd10});
 		end else begin
-			$display("needs 2 op");
+		//	$display("needs 2 op");
 			return (CMD inside {4'd0, 4'd1, 4'd2, 4'd3, 4'd4, 4'd5, 4'd12, 4'd13});
 		end
 	endfunction
@@ -41,10 +41,10 @@ class alu_monitor;
 	//delay based on commands
 	function int get_output_delay(logic [3:0] CMD,logic MODE);
 		if(CMD inside {4'd9,4'd10} && MODE == 1) begin
-			$display("delay 3");
+	//		$display("delay 3");
 			return 3;
 		end else begin
-			$display("delay 1");
+	//		$display("delay 1");
 			return 1;
 		end
 	endfunction
@@ -52,9 +52,9 @@ class alu_monitor;
 	//task to collect output from interface
 	task start();
 		int delay, count;
-		repeat(4) @(vif.mon_cb);
+		repeat(2) @(vif.mon_cb);
 
-		$display("[%0t] Monitor Start\n",$time);
+	//	$display("[%0t] Monitor Start\n",$time);
 
 		for(int i = 0; i < `NO_OF_TRANS; i++ )begin
 
@@ -70,8 +70,9 @@ class alu_monitor;
 			//repeat(1) @(vif.mon_cb); //wait 1 or 3 cycles based on cmd for output to become valid 
 
 			mon_trans = new();
-			@(vif.mon_cb);
+			// @(vif.mon_cb);
       // Capture inputs
+			$display("[%0t] ---------- ALU MONITOR ----------\n",$time);
       mon_trans.CE        = vif.mon_cb.CE;
       mon_trans.INP_VALID = vif.mon_cb.INP_VALID;
       mon_trans.MODE      = vif.mon_cb.MODE;
@@ -79,7 +80,12 @@ class alu_monitor;
       mon_trans.OPA       = vif.mon_cb.OPA;
       mon_trans.OPB       = vif.mon_cb.OPB;
       mon_trans.CIN       = vif.mon_cb.CIN;
+			$display("Input signals\n");
+
+			$display("CE = %0d, IP_VALID = %0d, MODE = %0d, CMD = %0d, OPA = %0d, OPB = %0d, CIN = %0d",mon_trans.CE,
+											  mon_trans.INP_VALID,mon_trans.MODE,mon_trans.CMD,mon_trans.OPA,mon_trans.OPB,mon_trans.CIN);
 			//Capture outputs 
+		repeat(2)	@(vif.mon_cb);
 			mon_trans.RES   = vif.mon_cb.RES;
 			mon_trans.COUT  = vif.mon_cb.COUT;
 			mon_trans.OFLOW = vif.mon_cb.OFLOW;
@@ -87,13 +93,8 @@ class alu_monitor;
 			mon_trans.G     = vif.mon_cb.G;
 			mon_trans.L     = vif.mon_cb.L;
 			mon_trans.E     = vif.mon_cb.E;
-		
 			
 			$display("[%0t] ---------- ALU MONITOR ----------\n",$time);
-			$display("Input signals\n");
-
-			$display("CE = %0d, IP_VALID = %0d, MODE = %0d, CMD = %0d, OPA = %0d, OPB = %0d, CIN = %0d",mon_trans.CE,
-											  mon_trans.INP_VALID,mon_trans.MODE,mon_trans.CMD,mon_trans.OPA,mon_trans.OPB,mon_trans.CIN);
 			$display("Output signals\n");
 			$display("RES = %0d, COUT = %b, OFLOW = %b, ERR = %b, G = %b, L = %b, E = %b\n",mon_trans.RES, 
 												mon_trans.COUT, mon_trans.OFLOW,mon_trans.ERR, mon_trans.G, mon_trans.L, mon_trans.E);
@@ -101,7 +102,7 @@ class alu_monitor;
 			//send to scoreboard
 			mbx_ms.put(mon_trans);
 			mon_cg.sample();
-			repeat(1)@(vif.mon_cb);
+			repeat(2)@(vif.mon_cb);
 
 			$display("MONITOR: Output functional coverage = %0.2f%%", mon_cg.get_coverage());
 		end

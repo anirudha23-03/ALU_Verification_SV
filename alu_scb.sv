@@ -33,9 +33,9 @@ class alu_scb;
             mon_mem[i] = mon2sb_trans;
 
             $display("[%0t] ----------------------- SCOREBOARD ---------------------------", $time);
-            $display("### REF[%0d] => RES=%0h, CMD=%0d, OPA=%0d, OPB=%0d", 
+            $display("### REF[%0d] => RES=%0d, CMD=%0d, OPA=%0d, OPB=%0d", 
                      i, ref2sb_trans.RES, ref2sb_trans.CMD, ref2sb_trans.OPA, ref2sb_trans.OPB);
-            $display("### MON[%0d] => RES=%0h, CMD=%0d, OPA=%0d, OPB=%0d", 
+            $display("### MON[%0d] => RES=%0d, CMD=%0d, OPA=%0d, OPB=%0d", 
                      i, mon2sb_trans.RES, mon2sb_trans.CMD, mon2sb_trans.OPA, mon2sb_trans.OPB);
 
             compare_results(i);
@@ -50,9 +50,9 @@ class alu_scb;
 
             // RES
             if (ref_mem[index].RES === mon_mem[index].RES)
-                $display("PASS: RES match => %0h", ref_mem[index].RES);
+                $display("PASS: RES match => %0d", ref_mem[index].RES);
             else begin
-                $display("FAIL: RES mismatch => REF=%0h, MON=%0h", ref_mem[index].RES, mon_mem[index].RES);
+                $display("FAIL: RES mismatch => REF=%0d, MON=%0d", ref_mem[index].RES, mon_mem[index].RES);
                 all_match = 0;
             end
 

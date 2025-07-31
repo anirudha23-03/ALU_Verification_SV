@@ -44,7 +44,7 @@ class alu_driver;
 
 		$display("[%0t] Driver Start", $time);
 		repeat(1)@(vif.drv_cb);
-		$display("[%0t] before loop",$time);
+//		$display("[%0t] before loop",$time);
 
 		for(int i = 0; i < `NO_OF_TRANS; i++) begin
 			drv_trans = new();
@@ -57,11 +57,11 @@ class alu_driver;
 			if(vif.rst == 0) begin 
 				vif.drv_cb.CE        <= drv_trans.CE;
 				vif.drv_cb.MODE      <= drv_trans.MODE;
-        vif.drv_cb.CMD       <= drv_trans.CMD;
-        vif.drv_cb.CIN       <= drv_trans.CIN;
-        vif.drv_cb.OPA       <= drv_trans.OPA;
-        vif.drv_cb.OPB       <= drv_trans.OPB;
-        vif.drv_cb.INP_VALID <= drv_trans.INP_VALID;
+			        vif.drv_cb.CMD       <= drv_trans.CMD;
+			        vif.drv_cb.CIN       <= drv_trans.CIN;
+			        vif.drv_cb.OPA       <= drv_trans.OPA;
+			        vif.drv_cb.OPB       <= drv_trans.OPB;
+			        vif.drv_cb.INP_VALID <= drv_trans.INP_VALID;
 
 				if(needs_2_op(drv_trans.CMD, drv_trans.MODE) && drv_trans.INP_VALID != 2'b11) begin
 					//wait up to 16 cycles 
@@ -95,6 +95,7 @@ class alu_driver;
 				mbx_dr.put(drv_trans);
 				drv_cg.sample();
 
+repeat(3) @(vif.drv_cb);
 			end else begin
         // During reset
         vif.drv_cb.CE        <= 0;
@@ -112,5 +113,6 @@ class alu_driver;
     end
 
     $display("ALU DRIVER: Input Coverage = %0.2f%%\n", drv_cg.get_coverage());
+repeat(1) @(vif.drv_cb);
   endtask
 endclass
