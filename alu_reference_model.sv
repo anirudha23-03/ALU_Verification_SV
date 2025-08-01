@@ -48,7 +48,7 @@ class alu_reference_model;
             ref_trans.ERR
           );
 
-					$display("[%0t]-----------------------REFERENCE MODEL ------------------------\n",$time);
+                                        $display("[%0t]-----------------------REFERENCE MODEL ------------------------\n",$time);
           $display("RST = %0b CE = %0b MODE = %0b INP_VALID = %0b CMD = %0d",
                    vif.rst, ref_trans.CE, ref_trans.MODE, ref_trans.INP_VALID, ref_trans.CMD);
           $display("OPA = %0d OPB = %0d CIN = %0b\n", ref_trans.OPA, ref_trans.OPB, ref_trans.CIN);
@@ -134,7 +134,7 @@ class alu_reference_model;
     input [1:0] ip_v;
     input [3:0] cmd;
     input [`DATA_WIDTH-1:0] opa, opb;
-    output reg [2*`DATA_WIDTH:0] expected_res;
+    output reg [`DATA_WIDTH+1:0] expected_res;
     output reg expected_cout;
     output reg expected_e;
     output reg expected_g;
@@ -253,3 +253,5 @@ class alu_reference_model;
   endtask
 
 endclass
+
+ 

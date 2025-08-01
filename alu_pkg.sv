@@ -1,6 +1,3 @@
-// This package includes all the files in the ALU testbench architecture
-// which will be imported in the top module
-
 package alu_pkg;
 	`include "defines.sv"
   `include "alu_transaction.sv"
@@ -11,6 +8,5 @@ package alu_pkg;
   `include "alu_scb.sv"
   `include "alu_environment.sv"
   `include "alu_test.sv"
-
 endpackage
 

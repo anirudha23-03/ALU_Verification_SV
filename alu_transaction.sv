@@ -8,24 +8,85 @@ class alu_transaction;
 	rand bit CE,CIN,MODE;
 
 	//output signals
-	bit [2*`DATA_WIDTH:0] RES;
+	bit [`DATA_WIDTH:0] RES;
   bit ERR,OFLOW,COUT,G,L,E;
-
-	constraint ip_valid{INP_VALID == 3; MODE == 1; CMD == 0;/*INP_VALID dist {2'b00 := 1, 2'b10 := 2, 2'b01 := 2, 2'b11 := 5 };*/}
-	//constraint command{CMD inside {[0:13]};} //to cover invalid cmd range also
-  constraint cmd_range_c {
-  CMD inside {[0:13]}; // Base range constraint
-  
-		if (MODE == 1) {
-    	!(CMD inside {9, 10});
-  }
-}	
-	constraint ce{ CE dist {0 := 2, 1 := 10};}
-	constraint cin_needed { if (!(CMD inside {4'b0010, 4'b0011}) || MODE == 0) CIN == 0;} //cin is active only for add and sub in arithmetic op
 	
-		//METHODS
-		//copying objects for blueprint
-		virtual function alu_transaction copy();
+	constraint ce{ CE dist {0 := 2, 1 := 10};}
+	constraint cin_needed { if (!(CMD inside {4'b0010, 4'b0011}) || MODE == 0) CIN == 0;}
+	
+	//copying objects for blueprint
+	virtual function alu_transaction copy();
+			copy = new();
+			copy.OPA = this.OPA;
+			copy.OPB = this.OPB;
+			copy.INP_VALID = this.INP_VALID;
+			copy.CMD = this.CMD;
+			copy.CE = this.CE;
+			copy.CIN = this.CIN;
+			copy.MODE = this.MODE;
+			return copy;
+		endfunction
+endclass
+
+class logical_one extends alu_transaction;
+	constraint cmd {CMD inside {[6:11]};}
+	constraint mode {MODE == 0;}
+	constraint ip_valid {INP_VALID == 3;}
+	virtual function logical_one copy();
+			copy = new();
+		 $display("||||||||||||||||||||||||||||logical one start||||||||||||||||||||||||||");
+			copy.OPA = this.OPA;
+			copy.OPB = this.OPB;
+			copy.INP_VALID = this.INP_VALID;
+			copy.CMD = this.CMD;
+			copy.CE = this.CE;
+			copy.CIN = this.CIN;
+			copy.MODE = this.MODE;
+
+		$display("||||||||||||||||||||||||||||logical one end||||||||||||||||||||||||||");
+			return copy;
+		endfunction
+endclass
+
+class arithmetic_one extends alu_transaction;
+	constraint cmd {CMD inside {[4:7]};}
+	constraint mode {MODE == 1;}
+	constraint ip_valid {INP_VALID == 3;}
+	virtual function arithmetic_one copy();
+			copy = new();
+			copy.OPA = this.OPA;
+			copy.OPB = this.OPB;
+			copy.INP_VALID = this.INP_VALID;
+			copy.CMD = this.CMD;
+			copy.CE = this.CE;
+			copy.CIN = this.CIN;
+			copy.MODE = this.MODE;
+			return copy;
+		endfunction
+endclass
+
+class logical_two extends alu_transaction;
+	constraint cmd {CMD inside {0,1,2,3,4,5,12,13};}
+	constraint mode {MODE == 0;}
+	constraint ip_valid {INP_VALID == 3;}
+	virtual function logical_two copy();
+			copy = new();
+			copy.OPA = this.OPA;
+			copy.OPB = this.OPB;
+			copy.INP_VALID = this.INP_VALID;
+			copy.CMD = this.CMD;
+			copy.CE = this.CE;
+			copy.CIN = this.CIN;
+			copy.MODE = this.MODE;
+			return copy;
+		endfunction
+endclass
+
+class arithmetic_two extends alu_transaction;
+	constraint cmd {CMD inside {0,1,2,3,8,9,10};}
+	constraint mode {MODE == 1;}
+	constraint ip_valid {INP_VALID == 3;}
+	virtual function arithmetic_two copy();
 			copy = new();
 			copy.OPA = this.OPA;
 			copy.OPB = this.OPB;

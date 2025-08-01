@@ -1,6 +1,9 @@
-//`timescale 1ns/1ns
-//`include "alu_pkg.sv"
+`timescale 1ns/1ns
 
+`include "alu_pkg.sv"
+`include "alu_interface.sv"
+`include "alu_design.sv"
+/*
 `include "defines.sv"
 `include "alu_interface.sv"
 `include "alu_design.sv"
@@ -12,12 +15,12 @@
 `include "alu_scb.sv"
 `include "alu_environment.sv"
 `include "alu_test.sv"
-
+*/
 
 module top();
 
   // Import all classes/types from package
-  //import alu_pkg::*;
+  import alu_pkg::*;
 
   // Clock and Reset
   bit clk;
@@ -38,7 +41,7 @@ module top();
   alu_if intf(clk, rst);
 
   // ALU Design Under Verification (DUV)
-  ALU_DESIGN DUV (
+  alu_design DUV (
     .OPA(intf.OPA),
     .OPB(intf.OPB),
 		.INP_VALID(intf.INP_VALID),
