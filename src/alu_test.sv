@@ -30,16 +30,13 @@ class test1 extends alu_test;
   endfunction
 
 	task run(); 
-		//$display("test begin");
 		env=new(drv_vif,mon_vif,ref_vif);
 		env.build;
 		begin
-			//$display("logical one begin");
 			trans1 = new();
 			env.gen.blueprint= trans1;
 	  end
 		   env.start;
-			 //$display("logical one end");
 	endtask
 endclass
 
@@ -55,10 +52,8 @@ class test2 extends alu_test;
 		env=new(drv_vif,mon_vif,ref_vif);
 		env.build;
 		begin
-			//$display("arithrmatic one begin");
 			trans2 = new();
 			env.gen.blueprint= trans2;
-			//$display("arithrmatic one end");
 	  end
 		   env.start;
 	endtask
@@ -76,10 +71,8 @@ class test3 extends alu_test;
 		env=new(drv_vif,mon_vif,ref_vif);
 		env.build;
 		begin
-			  //$display("logical two begin");
 			trans3 = new();
 			env.gen.blueprint= trans3;
-			//$display("logical two end");
 	  end
 		   env.start;
 	endtask
@@ -97,10 +90,8 @@ class test4 extends alu_test;
 		env=new(drv_vif,mon_vif,ref_vif);
 		env.build;
 		begin
-			//$display("arithrmatic two begin");
 			trans4 = new();
 			env.gen.blueprint= trans4;
-			//$display("arithrmatic two end");
 	  end
 		   env.start;
 	endtask

@@ -34,7 +34,6 @@ class logical_one extends alu_transaction;
 	constraint ip_valid {INP_VALID == 3;}
 	virtual function logical_one copy();
 			copy = new();
-		 $display("||||||||||||||||||||||||||||logical one start||||||||||||||||||||||||||");
 			copy.OPA = this.OPA;
 			copy.OPB = this.OPB;
 			copy.INP_VALID = this.INP_VALID;
@@ -42,8 +41,6 @@ class logical_one extends alu_transaction;
 			copy.CE = this.CE;
 			copy.CIN = this.CIN;
 			copy.MODE = this.MODE;
-
-		$display("||||||||||||||||||||||||||||logical one end||||||||||||||||||||||||||");
 			return copy;
 		endfunction
 endclass
