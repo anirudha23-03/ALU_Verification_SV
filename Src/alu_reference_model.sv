@@ -228,8 +228,8 @@ class alu_reference_model;
                 `NOT_A: expected_res = {{`DATA_WIDTH{1'b0}}, ~opa};
                 `NOT_B: expected_res = {{`DATA_WIDTH{1'b0}}, ~opb};
                 `SHR1_A: expected_res = {{`DATA_WIDTH{1'b0}}, opa >> 1};
-                `SHR1_B: expected_res = {{`DATA_WIDTH{1'b0}}, opb >> 1};
                 `SHL1_A: expected_res = {{`DATA_WIDTH{1'b0}}, opa << 1};
+                `SHR1_B: expected_res = {{`DATA_WIDTH{1'b0}}, opb >> 1};
                 `SHL1_B: expected_res = {{`DATA_WIDTH{1'b0}}, opb << 1};
                 `ROL_A_B: begin
                   expected_error = |opb[`DATA_WIDTH-1:$clog2(`DATA_WIDTH)];

@@ -35,26 +35,31 @@ class alu_driver;
                 end else begin
                         return (CMD inside {4'd0,4'd1,4'd2,4'd3,4'd4,4'd5,4'd12,4'd13});
                 end
-        endfunction
-
+				endfunction
+				
+				function int get_output_delay(logic [3:0] CMD,logic MODE);
+					     if(CMD inside {4'd9,4'd10} && MODE == 1) begin
+						       return 4;
+						   end else begin
+							     return 3;
+							 end
+			  endfunction
 
         //task to drive stimuli to interface
-
 				task start();
-
-					int c ;
-
-					$display("[%0t] Driver Start", $time);
+					int delay,c ;
+					
 					repeat(1)@(vif.drv_cb);
 
 					for(int i = 0; i < `NO_OF_TRANS; i++) begin
-						c=0;
+						c = 0;
+						delay = get_output_delay(vif.drv_cb.CMD,vif.drv_cb.MODE);
+
 						drv_trans = new();
 						mbx_gd.get(drv_trans);
 
 						$display("[%0t] ---------- ALU DRIVER----------\n", $time);
-						$display("[%0t] CE = %0d, MODE = %0d, INP_VALID = %0d, CMD = %0d, OPA = %0d, OPB = %0d, CIN = %0d\n",
-							$time, drv_trans.CE, drv_trans.MODE, drv_trans.INP_VALID, drv_trans.CMD, drv_trans.OPA, drv_trans.OPB, drv_trans.CIN);
+						$display("[%0t] CE = %0d, MODE = %0d, INP_VALID = %0d, CMD = %0d, OPA = %0d, OPB = %0d, CIN = %0d\n",$time, drv_trans.CE, drv_trans.MODE, drv_trans.INP_VALID, drv_trans.CMD, drv_trans.OPA, drv_trans.OPB, drv_trans.CIN);
 
 						if(vif.rst == 0) begin
 							vif.drv_cb.CE        <= drv_trans.CE;
@@ -71,6 +76,7 @@ class alu_driver;
 								drv_trans.CMD.rand_mode(0);
 								drv_trans.CE.rand_mode(0);
 								drv_trans.MODE.rand_mode(0);
+								
 								while (drv_trans.INP_VALID != 2'b11 && c < 16) begin
 
 									@(vif.drv_cb);
@@ -84,8 +90,7 @@ class alu_driver;
 									vif.drv_cb.OPB       <= drv_trans.OPB;
 									vif.drv_cb.INP_VALID <= drv_trans.INP_VALID;
 									vif.drv_cb.CIN       <= drv_trans.CIN;
-									$display("[%0t] Retry %0d: CE = %0d, MODE = %0d, INP_VALID = %0d, CMD = %0d, OPA = %0d, OPB = %0d, CIN = %0d\n",
-										$time,c, drv_trans.CE, drv_trans.MODE, drv_trans.INP_VALID, drv_trans.CMD, drv_trans.OPA, drv_trans.OPB, drv_trans.CIN);
+									$display("[%0t] Retry %0d: CE = %0d, MODE = %0d, INP_VALID = %0d, CMD = %0d, OPA = %0d, OPB = %0d, CIN = %0d\n",$time,c, drv_trans.CE, drv_trans.MODE, drv_trans.INP_VALID, drv_trans.CMD, drv_trans.OPA, drv_trans.OPB, drv_trans.CIN);
 								end
 
 								if (drv_trans.INP_VALID != 2'b11) begin
@@ -98,7 +103,7 @@ class alu_driver;
 							mbx_dr.put(drv_trans);
 							drv_cg.sample();
 
-							repeat(3) @(vif.drv_cb);
+							repeat(delay) @(vif.drv_cb); // delay here
 
 						end else begin
 							// During reset
@@ -109,8 +114,11 @@ class alu_driver;
 							vif.drv_cb.CMD       <= 0;
 							vif.drv_cb.CIN       <= 0;
 							vif.drv_cb.MODE      <= 0;
+							
 							$display("[%0t] ALU DRIVER: DUT is in reset\n", $time);
+							
 							repeat(1)@(vif.drv_cb);
+						
 						end
 					end
 

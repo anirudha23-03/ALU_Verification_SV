@@ -29,8 +29,8 @@
 `define NOT_A    4'd6
 `define NOT_B    4'd7
 `define SHR1_A   4'd8
-`define SHR1_B   4'd9
-`define SHL1_A   4'd10
+`define SHL1_A   4'd9
+`define SHR1_B   4'd10
 `define SHL1_B   4'd11
 `define ROL_A_B  4'd12
 `define ROR_A_B  4'd13

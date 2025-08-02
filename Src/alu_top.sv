@@ -62,10 +62,15 @@ module top();
 
   // Test class instantiation
   alu_test test = new(intf.DRV, intf.MON, intf.REF_SB);
+	test1 t1 = new(intf.DRV, intf.MON, intf.REF_SB);
+	test2 t2 = new(intf.DRV, intf.MON, intf.REF_SB);
+	test3 t3 = new(intf.DRV, intf.MON, intf.REF_SB);
+	test4 t4 = new(intf.DRV, intf.MON, intf.REF_SB);
+	test_regression rt = new(intf.DRV, intf.MON, intf.REF_SB);
 
   // Start test
   initial begin
-    test.run();
+    rt.run();
     $finish;
   end
 
