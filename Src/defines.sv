@@ -4,7 +4,7 @@
 
 `define DATA_WIDTH 8
 `define CMD_WIDTH 4
-`define NO_OF_TRANS 10
+`define NO_OF_TRANS 2000
 
 //arithmetic commands
 `define ADD      4'd0

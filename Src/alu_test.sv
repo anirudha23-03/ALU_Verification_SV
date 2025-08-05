@@ -97,6 +97,25 @@ class test4 extends alu_test;
 	endtask
 endclass
 
+class test5 extends alu_test;
+	delay_16 trans5;
+	function new(virtual alu_if drv_vif,
+							 virtual alu_if mon_vif,
+		           virtual alu_if ref_vif);
+		    super.new(drv_vif,mon_vif,ref_vif);
+  endfunction
+
+	task run();
+		env=new(drv_vif,mon_vif,ref_vif);
+		env.build;
+		begin
+			trans5 = new();
+			env.gen.blueprint= trans5;
+	  end
+		   env.start;
+	endtask
+endclass
+
 class test_regression extends alu_test;
 	
 	alu_transaction  trans;
@@ -104,7 +123,8 @@ class test_regression extends alu_test;
 	arithmetic_one trans2;
 	logical_two trans3;
 	arithmetic_two trans4;
-	
+	delay_16 trans5;
+
 	function new(virtual alu_if drv_vif,
 		virtual alu_if mon_vif,
 		virtual alu_if ref_vif);
@@ -145,5 +165,11 @@ class test_regression extends alu_test;
 		end
 		env.start;
 
+		begin
+			trans5 = new();
+			env.gen.blueprint= trans5;
+		end
+		env.start;
 	endtask
+
 endclass

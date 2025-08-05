@@ -17,6 +17,9 @@ class alu_driver;
                 CMD : coverpoint drv_trans.CMD { bins command[] = {[0:15]};}
                 MODE : coverpoint drv_trans.MODE { bins mode[] = {0,1};}
                 CE : coverpoint drv_trans.CE { bins ce[] = {0,1};}
+								MODExINP_VALID: cross MODE,INP_VALID;
+							  MODExCMD: cross MODE, CMD;
+					      CMDxINP_VALID: cross CMD, INP_VALID;
         endgroup
 
         //constrctor

@@ -66,6 +66,7 @@ module top();
 	test2 t2 = new(intf.DRV, intf.MON, intf.REF_SB);
 	test3 t3 = new(intf.DRV, intf.MON, intf.REF_SB);
 	test4 t4 = new(intf.DRV, intf.MON, intf.REF_SB);
+	test5 t5 = new(intf.DRV, intf.MON, intf.REF_SB);
 	test_regression rt = new(intf.DRV, intf.MON, intf.REF_SB);
 
   // Start test

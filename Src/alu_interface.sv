@@ -33,7 +33,7 @@ interface alu_if(input bit clk, input bit rst);
 	modport DRV(clocking drv_cb, input rst,INP_VALID);
 	modport MON(clocking mon_cb);
 	modport REF_SB(clocking ref_cb, input rst,INP_VALID);   
-/*
+
 		//Assertions
 		//checking signals valid when ce is high
 		property valid_ip;
@@ -57,7 +57,7 @@ interface alu_if(input bit clk, input bit rst);
 		else
 			$error("RST assertion Fail");
 
-		//inputs stable at the posedge of clk
+		/*//inputs stable at the posedge of clk
 		property valid_inputs;
 			@(posedge clk) 
 			disable iff(rst) CE |=> $stable(OPA) && $stable(OPB) && $stable(CIN)  && $stable(INP_VALID);
@@ -66,7 +66,7 @@ interface alu_if(input bit clk, input bit rst);
 		assert property (valid_inputs)
 			$info("Stable Inputs at posedge Pass ");
 		else 
-			$error("Stable Inputs Fail");
+			$error("Stable Inputs Fail");*/
 
 		//16 cycle wait and error condition
 		property wait_err;
@@ -89,6 +89,6 @@ interface alu_if(input bit clk, input bit rst);
 			$info("Rotate Error Condition Pass");
     else
       $error("Rotate Error Condition Fail");
-*/
+
 endinterface
 

@@ -4,8 +4,7 @@
 `include "alu_scb.sv"
 `include "alu_generator.sv"
 `include "alu_driver.sv"
-`include "alu_monitor.sv"
-*/
+`include "alu_monitor.sv"*/
 class alu_environment;
 	//virtual interfaces for driver, monitor and ref model
 	virtual alu_if drv_vif;
